@@ -14,7 +14,7 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageReleaseNotes>Field typo fix</PackageReleaseNotes>
     <RepositoryUrl></RepositoryUrl>
-    <Description>Generic QuadTree algorithm based on Leonidovia's Ultimate QuadTree.</Description>
+    <Description>Generic QuadTree algorithm inspired by Leonidovia's Ultimate QuadTree.</Description>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
