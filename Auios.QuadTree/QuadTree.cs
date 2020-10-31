@@ -74,16 +74,17 @@ namespace Auios.QuadTree
         private bool IsObjectInside(T obj)
         {
             if (_objectBounds.GetTop(obj) > _area.Bottom) return false;
-            if (_objectBounds.GetBottom(obj) < _area.Top) return false;
+            if (_objectBounds.GetBottom(obj) <= _area.Top) return false;
             if (_objectBounds.GetLeft(obj) > _area.Right) return false;
-            if (_objectBounds.GetRight(obj) < _area.Left) return false;
+            if (_objectBounds.GetRight(obj) <= _area.Left) return false;
             return true;
         }
 
-        private bool DoOverlap(QuadTreeRect rect)
+        private bool IsOverlapping(QuadTreeRect rect)
         {
-            if (rect.Right < _area.Left || rect.Left > _area.Right) return false;
-            if (rect.Top > _area.Bottom || rect.Bottom < _area.Top) return false;
+            if (rect.Right <= _area.Left || rect.Left > _area.Right) return false;
+            if (rect.Top > _area.Bottom || rect.Bottom <= _area.Top) return false;
+            _area.isOverlapped = true;
             return true;
         }
 
@@ -204,9 +205,8 @@ namespace Auios.QuadTree
             }
             else
             {
-                if(DoOverlap(rect))
+                if(IsOverlapping(rect))
                 {
-                    _area.isOverlapped = true;
                     foundObjects.AddRange(_objects);
                 }
             }
