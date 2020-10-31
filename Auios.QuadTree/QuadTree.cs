@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 
 namespace Auios.QuadTree
 {
@@ -71,23 +73,44 @@ namespace Auios.QuadTree
         public QuadTree(float width, float height, IQuadTreeObjectBounds<T> objectBounds, int maxObjects = 10, int maxLevel = 5, int currentLevel = 0)
             : this(0, 0, width, height, objectBounds, maxObjects, maxLevel, currentLevel) { }
 
+        /// <summary>Initializes a new instance of the <see cref="T:Auios.QuadTree.QuadTree`1"></see> class.</summary>
+        /// <param name="size">The size of the boundary rectangle.</param>
+        /// <param name="objectBounds">The set of methods for getting boundaries of an element.</param>
+        /// <param name="maxObjects">The max number of elements in one rectangle.</param>
+        /// <param name="maxLevel">The max depth level.</param>
+        /// <param name="currentLevel">The current depth level. Leave default if this is the root QuadTree.</param>
+        public QuadTree(Vector2 size, IQuadTreeObjectBounds<T> objectBounds, int maxObjects = 10, int maxLevel = 5, int currentLevel = 0)
+            : this(0, 0, size.X, size.Y, objectBounds, maxObjects, maxLevel, currentLevel) { }
+
+        /// <summary>Initializes a new instance of the <see cref="T:Auios.QuadTree.QuadTree`1"></see> class.</summary>
+        /// <param name="position">The position of the boundary rectangle.</param>
+        /// <param name="size">The size of the boundary rectangle.</param>
+        /// <param name="objectBounds">The set of methods for getting boundaries of an element.</param>
+        /// <param name="maxObjects">The max number of elements in one rectangle.</param>
+        /// <param name="maxLevel">The max depth level.</param>
+        /// <param name="currentLevel">The current depth level. Leave default if this is the root QuadTree.</param>
+        public QuadTree(Vector2 position, Vector2 size, IQuadTreeObjectBounds<T> objectBounds, int maxObjects = 10, int maxLevel = 5, int currentLevel = 0)
+            : this(position.X, position.Y, size.X, size.Y, objectBounds, maxObjects, maxLevel, currentLevel) { }
+
         private bool IsObjectInside(T obj)
         {
             if (_objectBounds.GetTop(obj) > _area.Bottom) return false;
-            if (_objectBounds.GetBottom(obj) <= _area.Top) return false;
+            if (_objectBounds.GetBottom(obj) < _area.Top) return false;
             if (_objectBounds.GetLeft(obj) > _area.Right) return false;
-            if (_objectBounds.GetRight(obj) <= _area.Left) return false;
+            if (_objectBounds.GetRight(obj) < _area.Left) return false;
             return true;
         }
 
+        /// <summary>Checks if the current quadrant is overlapping with a <see cref="T:Auios.QuadTree.QuadTreeRect"></see></summary>
         private bool IsOverlapping(QuadTreeRect rect)
         {
-            if (rect.Right <= _area.Left || rect.Left > _area.Right) return false;
-            if (rect.Top > _area.Bottom || rect.Bottom <= _area.Top) return false;
+            if (rect.Right < _area.Left || rect.Left > _area.Right) return false;
+            if (rect.Top > _area.Bottom || rect.Bottom < _area.Top) return false;
             _area.isOverlapped = true;
             return true;
         }
 
+        /// <summary>Splits the current quadrant into four new quadrants and drops all objects to the lower quadrants.</summary>
         private void Quarter()
         {
             if (CurrentLevel >= MaxLevel) return;
@@ -205,7 +228,6 @@ namespace Auios.QuadTree
         public T[] FindObjects(QuadTreeRect rect)
         {
             List<T> foundObjects = new List<T>();
-
             if(_hasChildren)
             {
                 foundObjects.AddRange(quad_TL.FindObjects(rect));
@@ -221,7 +243,10 @@ namespace Auios.QuadTree
                 }
             }
 
-            return foundObjects.ToArray();
+            HashSet<T> result = new HashSet<T>();
+            result.UnionWith(foundObjects);
+
+            return result.ToArray();
         }
     }
 }
