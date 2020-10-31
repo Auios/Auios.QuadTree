@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Auios.QuadTree</AssemblyName>
+    <RootNamespace>Auios.QuadTree</RootNamespace>
+    <Authors>Auios</Authors>
+    <Company />
+    <PackageId>Auios.QuadTree</PackageId>
+    <PackageTags>QuadTree, Structure, Spatial, 2D, Quad, Tree</PackageTags>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/Auios/QuadTree</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>Field typo fix</PackageReleaseNotes>
+    <RepositoryUrl></RepositoryUrl>
+    <Description>Generic QuadTree algorithm based on Leonidovia's Ultimate QuadTree.</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.1</Version>
+    <Product>Auios.QuadTree</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
