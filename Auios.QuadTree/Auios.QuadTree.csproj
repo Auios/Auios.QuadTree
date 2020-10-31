@@ -7,12 +7,16 @@
     <Authors>Auios</Authors>
     <Company />
     <PackageId>Auios.QuadTree</PackageId>
-    <PackageTags>QuadTree, Structure, Spatial, 2D, Quad, Tree</PackageTags>
+    <PackageTags>QuadTree, Data, Structure, Spatial, 2D, Quad, Tree, Search, Searching</PackageTags>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/Auios/Auios.QuadTree</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReleaseNotes>Updated to new project URL</PackageReleaseNotes>
+    <PackageReleaseNotes>* Using Auios.Rectangle
+* Can insert collections of objects now
+* Made the Area field public
+* Constructors get along with Vector2 now
+* Small Insertion optimization</PackageReleaseNotes>
     <RepositoryUrl></RepositoryUrl>
     <Description>Generic QuadTree algorithm inspired by Leonidovia's Ultimate QuadTree.</Description>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
