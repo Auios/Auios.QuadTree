@@ -9,25 +9,10 @@ Wikipedia - https://en.wikipedia.org/wiki/Quadtree
 // Implement IQuadTreeObjectBounds<T> interface for the object type to be stored
 public class MyCustomBounds : IQuadTreeObjectBounds<Vector2>
 {
-    public float GetLeft(Vecto2 obj)
-    {
-        return obj.Min(p => p.X);
-    }
-
-    public float GetRight(Vector2 obj)
-    {
-        return obj.Max(p => p.X);
-    }
-
-    public float GetTop(Vector2 obj)
-    {
-        return obj.Min(p => p.Y);
-    }
-
-    public float GetBottom(Vector2 obj)
-    {
-        return obj.Max(p => p.Y);
-    }
+    public float GetBottom(Vector2 obj) => obj.Y;
+    public float GetTop(Vector2 obj) => obj.Y;
+    public float GetLeft(Vector2 obj) => obj.X;
+    public float GetRight(Vector2 obj) => obj.X;
 }
 
 // Create a QuadTree and fill it with objects
