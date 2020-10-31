@@ -17,7 +17,7 @@ namespace Auios.QuadTree
     public class QuadTree<T>
     {
         /// <summary>The area of this quadrant.</summary>
-        private QuadTreeRect _area;
+        public QuadTreeRect Area;
         /// <summary>Objects in this quadrant.</summary>
         private readonly HashSet<T> _objects;
         /// <summary>The bounds which this quadrant expects its objects to conform to.</summary>
@@ -52,7 +52,7 @@ namespace Auios.QuadTree
         /// <param name="currentLevel">The current depth level. Leave default if this is the root QuadTree.</param>
         public QuadTree(float x, float y, float width, float height, IQuadTreeObjectBounds<T> objectBounds, int maxObjects = 10, int maxLevel = 5, int currentLevel = 0)
         {
-            _area = new QuadTreeRect(x, y, width, height);
+            Area = new QuadTreeRect(x, y, width, height);
             _objects = new HashSet<T>();
             _objectBounds = objectBounds;
 
@@ -94,19 +94,19 @@ namespace Auios.QuadTree
 
         private bool IsObjectInside(T obj)
         {
-            if (_objectBounds.GetTop(obj) > _area.Bottom) return false;
-            if (_objectBounds.GetBottom(obj) < _area.Top) return false;
-            if (_objectBounds.GetLeft(obj) > _area.Right) return false;
-            if (_objectBounds.GetRight(obj) < _area.Left) return false;
+            if (_objectBounds.GetTop(obj) > Area.Bottom) return false;
+            if (_objectBounds.GetBottom(obj) < Area.Top) return false;
+            if (_objectBounds.GetLeft(obj) > Area.Right) return false;
+            if (_objectBounds.GetRight(obj) < Area.Left) return false;
             return true;
         }
 
         /// <summary>Checks if the current quadrant is overlapping with a <see cref="T:Auios.QuadTree.QuadTreeRect"></see></summary>
         private bool IsOverlapping(QuadTreeRect rect)
         {
-            if (rect.Right < _area.Left || rect.Left > _area.Right) return false;
-            if (rect.Top > _area.Bottom || rect.Bottom < _area.Top) return false;
-            _area.isOverlapped = true;
+            if (rect.Right < Area.Left || rect.Left > Area.Right) return false;
+            if (rect.Top > Area.Bottom || rect.Bottom < Area.Top) return false;
+            Area.isOverlapped = true;
             return true;
         }
 
@@ -117,10 +117,10 @@ namespace Auios.QuadTree
 
             int nextLevel = CurrentLevel + 1;
             _hasChildren = true;
-            quad_TL = new QuadTree<T>(_area.X, _area.Y, _area.HalfWidth, _area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
-            quad_TR = new QuadTree<T>(_area.MiddleX, _area.Y, _area.HalfWidth, _area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
-            quad_BL = new QuadTree<T>(_area.X, _area.MiddleY, _area.HalfWidth, _area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
-            quad_BR = new QuadTree<T>(_area.MiddleX, _area.MiddleY, _area.HalfWidth, _area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_TL = new QuadTree<T>(Area.X, Area.Y, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_TR = new QuadTree<T>(Area.MiddleX, Area.Y, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_BL = new QuadTree<T>(Area.X, Area.MiddleY, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_BR = new QuadTree<T>(Area.MiddleX, Area.MiddleY, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
 
             foreach (T obj in _objects)
             {
@@ -146,7 +146,7 @@ namespace Auios.QuadTree
 
             _objects.Clear();
             _hasChildren = false;
-            _area.isOverlapped = false;
+            Area.isOverlapped = false;
         }
 
         /// <summary> Inserts an object into the <see cref="T:Auios.QuadTree.QuadTree`1"></see>.</summary>
@@ -211,7 +211,7 @@ namespace Auios.QuadTree
         /// <returns> an array of <see cref="T:Auios.QuadTree.QuadTreeRect"></see> from the <see cref="T:Auios.QuadTree.QuadTree`1"></see>.</returns>
         public QuadTreeRect[] GetGrid()
         {
-            List<QuadTreeRect> grid = new List<QuadTreeRect> {_area};
+            List<QuadTreeRect> grid = new List<QuadTreeRect> {Area};
             if (_hasChildren)
             {
                 grid.AddRange(quad_TL.GetGrid());
