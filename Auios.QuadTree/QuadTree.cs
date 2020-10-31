@@ -126,7 +126,7 @@ namespace Auios.QuadTree
             _area.isOverlapped = false;
         }
 
-        /// <summary> Inserts an object into the <see cref="T:Auios.QuadTree.QuadTree`1"></see>. </summary>
+        /// <summary> Inserts an object into the <see cref="T:Auios.QuadTree.QuadTree`1"></see>.</summary>
         /// <param name="obj">The object to insert.</param>
         /// <returns>true if the object is successfully added to the <see cref="T:Auios.QuadTree.QuadTree`1"></see>; false if object is not added to the <see cref="T:Auios.QuadTree.QuadTree`1"></see>.</returns>
         public bool Insert(T obj)
@@ -152,6 +152,16 @@ namespace Auios.QuadTree
             }
 
             return true;
+        }
+
+        /// <summary> Inserts a collection of objects into the <see cref="T:Auios.QuadTree.QuadTree`1"></see>.</summary>
+        /// <param name="objects">The collection of objects to insert.</param>
+        public void InsertRange(IEnumerable<T> objects)
+        {
+            foreach(T obj in objects)
+            {
+                Insert(obj);
+            }
         }
 
         /// <summary>Returns the total number of obejcts in the <see cref="T:Auios.QuadTree.QuadTree`1"></see> and its children.</summary>
