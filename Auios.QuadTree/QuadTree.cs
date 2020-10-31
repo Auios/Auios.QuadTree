@@ -118,9 +118,9 @@ namespace Auios.QuadTree
             int nextLevel = CurrentLevel + 1;
             _hasChildren = true;
             quad_TL = new QuadTree<T>(Area.X, Area.Y, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
-            quad_TR = new QuadTree<T>(Area.MiddleX, Area.Y, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
-            quad_BL = new QuadTree<T>(Area.X, Area.MiddleY, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
-            quad_BR = new QuadTree<T>(Area.MiddleX, Area.MiddleY, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_TR = new QuadTree<T>(Area.CenterX, Area.Y, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_BL = new QuadTree<T>(Area.X, Area.CenterY, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
+            quad_BR = new QuadTree<T>(Area.CenterX, Area.CenterY, Area.HalfWidth, Area.HalfHeight, _objectBounds, MaxObjects, MaxLevel, nextLevel);
 
             foreach (T obj in _objects)
             {
