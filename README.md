@@ -9,7 +9,7 @@ Wikipedia: https://en.wikipedia.org/wiki/Quadtree
 NuGet.org: https://www.nuget.org/packages/Auios.QuadTree/
 
 ```
-Install-Package Auios.QuadTree -Version 1.1.1
+Install-Package Auios.QuadTree
 ```
 
 ## Example
