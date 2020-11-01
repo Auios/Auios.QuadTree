@@ -1,5 +1,7 @@
 # Auios.QuadTree
 
+![Logo](https://github.com/Auios/Auios.QuadTree/blob/main/Media/Logo.png)
+
 A Generic QuadTree algorithm inspired by [Leonidovia's Ultimate QuadTree.](https://github.com/leonidovia/UltimateQuadTree)
 
 Wikipedia: https://en.wikipedia.org/wiki/Quadtree
@@ -47,3 +49,11 @@ QuadTreeRect searchArea = new QuadTreeRect(150, 100, 50, 25);
 // Find objects in leaf quadrants which overlap the search area
 Vector2[] positions = quadTree.FindObjects(searchArea);
 ```
+
+## Demos
+
+![Demo3](https://github.com/Auios/Auios.QuadTree/blob/main/Media/Demo3.gif)
+
+![Demo2](https://github.com/Auios/Auios.QuadTree/blob/main/Media/Demo2.gif)
+
+![Demo1](https://github.com/Auios/Auios.QuadTree/blob/main/Media/Demo1.png)
