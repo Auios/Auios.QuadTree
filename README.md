@@ -3,6 +3,8 @@ A Generic QuadTree algorithm inspired by [Leonidovia's Ultimate QuadTree.](https
 
 Wikipedia - https://en.wikipedia.org/wiki/Quadtree
 
+Get it on NuGet.org - https://www.nuget.org/packages/Auios.QuadTree/
+
 ## Example
 
 ```cs
