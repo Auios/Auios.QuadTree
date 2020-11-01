@@ -1,9 +1,16 @@
 # Auios.QuadTree
+
 A Generic QuadTree algorithm inspired by [Leonidovia's Ultimate QuadTree.](https://github.com/leonidovia/UltimateQuadTree)
 
-Wikipedia - https://en.wikipedia.org/wiki/Quadtree
+Wikipedia: https://en.wikipedia.org/wiki/Quadtree
 
-Get it on NuGet.org - https://www.nuget.org/packages/Auios.QuadTree/
+## Install
+
+NuGet.org: https://www.nuget.org/packages/Auios.QuadTree/
+
+```
+Install-Package Auios.QuadTree -Version 1.1.1
+```
 
 ## Example
 
