@@ -2,6 +2,9 @@
 
 ![Logo](https://github.com/Auios/Auios.QuadTree/blob/main/Media/Logo.png)
 
+[![Nuget](https://img.shields.io/nuget/v/Auios.QuadTree.svg?logo=nuget)](https://www.nuget.org/packages/Auios.QuadTree/1.1.1)
+[![Nuget](https://img.shields.io/nuget/dt/Auios.QuadTree.svg)](https://www.nuget.org/packages/Auios.QuadTree/1.1.1)
+
 A Generic QuadTree algorithm inspired by [Leonidovia's Ultimate QuadTree.](https://github.com/leonidovia/UltimateQuadTree)
 
 Wikipedia: https://en.wikipedia.org/wiki/Quadtree
