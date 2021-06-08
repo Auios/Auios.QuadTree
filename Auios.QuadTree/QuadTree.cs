@@ -248,5 +248,9 @@ namespace Auios.QuadTree
 
             return result.ToArray();
         }
+        public T[] FindObjects(T bounds)
+        {
+            return FindObjects(new QuadTreeRect(_objectBounds.GetLeft(bounds), _objectBounds.GetTop(bounds), _objectBounds.GetRight(bounds), _objectBounds.GetBottom(bounds)));
+        }
     }
 }
