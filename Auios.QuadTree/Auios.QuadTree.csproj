@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyName>Auios.QuadTree</AssemblyName>
     <RootNamespace>Auios.QuadTree</RootNamespace>
     <Authors>Auios</Authors>
@@ -13,21 +12,25 @@
     <PackageProjectUrl>https://github.com/Auios/Auios.QuadTree</PackageProjectUrl>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageReleaseNotes>1.1.0
-* Using Auios.Rectangle
-* Can insert collections of objects now
-* Made the Area field public
-* Constructors get along with Vector2 now
-* Small Insertion optimization
+      * Integrated Auios.Rectangle for improved rectangle handling
+      * Added support for inserting collections of objects
+      * Exposed the Area field for greater flexibility
+      * Enhanced constructors to work seamlessly with Vector2
+      * Optimized object insertion for better performance
 
-1.1.1
-* Updated logo</PackageReleaseNotes>
+      1.1.1
+      * Refreshed logo for a better look
+
+      1.2.0
+      * Upgraded target framework from netcoreapp3.1 to net8.0</PackageReleaseNotes>
     <RepositoryUrl></RepositoryUrl>
     <Description>Generic QuadTree algorithm inspired by Leonidovia's Ultimate QuadTree.</Description>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <Product>Auios.QuadTree</Product>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,10 +42,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Auios.Rectangle" Version="1.0.1" />
   </ItemGroup>
-
 </Project>
