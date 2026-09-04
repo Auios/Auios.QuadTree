@@ -1,51 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Auios.QuadTree</AssemblyName>
     <RootNamespace>Auios.QuadTree</RootNamespace>
     <Authors>Auios</Authors>
-    <Company />
     <PackageId>Auios.QuadTree</PackageId>
-    <PackageTags>QuadTree, Data, Structure, Spatial, 2D, Quad, Tree, Search, Searching</PackageTags>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageTags>QuadTree;Data;Structure;Spatial;2D;Quad;Tree;Search;Searching</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Auios/Auios.QuadTree</PackageProjectUrl>
     <PackageIcon>Logo.png</PackageIcon>
-    <PackageReleaseNotes>1.1.0
-      * Integrated Auios.Rectangle for improved rectangle handling
-      * Added support for inserting collections of objects
-      * Exposed the Area field for greater flexibility
-      * Enhanced constructors to work seamlessly with Vector2
-      * Optimized object insertion for better performance
-
-      1.1.1
-      * Refreshed logo for a better look
-
-      1.2.0
-      * Upgraded target framework from netcoreapp3.1 to net8.0</PackageReleaseNotes>
-    <RepositoryUrl></RepositoryUrl>
+    <RepositoryUrl>https://github.com/Auios/Auios.QuadTree</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <Description>Generic QuadTree algorithm inspired by Leonidovia's Ultimate QuadTree.</Description>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Version>1.2.0</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>2.0.0</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
     <Product>Auios.QuadTree</Product>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>2.0.0
+      * Target .NET 10
+      * Removed Auios.Rectangle dependency (QuadTreeRect is now self-contained)
+      * FindObjects returns objects whose bounds intersect the search region
+      * Fixed FindObjects(T) using right/bottom as width/height
+      * Objects that span child quadrants are retained on the parent node
+    </PackageReleaseNotes>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Media\Logo.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Include="..\Media\Logo.png" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
     <None Include="..\README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Auios.Rectangle" Version="1.0.1" />
   </ItemGroup>
 </Project>
