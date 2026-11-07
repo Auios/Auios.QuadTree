@@ -14,7 +14,7 @@
     <PackageIcon>Logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/Auios/Auios.QuadTree</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>Generic QuadTree algorithm inspired by Leonidovia's Ultimate QuadTree.</Description>
+    <Description>A fast, generic QuadTree for 2D spatial searches.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Version>2.0.0</Version>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
