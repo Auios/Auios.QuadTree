@@ -27,6 +27,12 @@
       * FindObjects returns objects whose bounds intersect the search region
       * Fixed FindObjects(T) using right/bottom as width/height
       * Objects that span child quadrants are retained on the parent node
+      * Rewritten for speed: flat node storage, bounds cached at insert, no per-search tree walk, no hashing
+      * QuadTreeRect is now a struct, so searches do not allocate
+      * Added FindObjects overloads that fill a List&lt;T&gt;, Remove, NodeCount and GetGrid(List)
+      * Count() is O(1); Clear() keeps storage so per-frame rebuilds do not allocate
+      * Equal value-type objects are no longer collapsed into one (each Insert is stored)
+      * Objects with NaN bounds are rejected; a negative maxObjects throws
     </PackageReleaseNotes>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
